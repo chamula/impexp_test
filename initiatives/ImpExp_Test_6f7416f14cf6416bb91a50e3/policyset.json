@@ -1,0 +1,54 @@
+{
+ "properties": {
+  "displayName": "ImpExp Test",
+  "policyType": "Custom",
+  "description": "Test built to identify initiative import export processes ",
+  "metadata": {
+   "category": "Regulatory Compliance",
+   "version": "1.0",
+   "createdBy": "91970136-9384-4222-8c03-d1fcb57ca4d4",
+   "createdOn": "2023-02-07T17:25:04.8746203Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "IncludeArcMachines": {
+    "type": "string",
+    "metadata": {
+     "displayName": "Include Arc-connected servers when evaluating guest configuration policies",
+     "description": "By selecting 'true,' you agree to be charged monthly per Arc connected machine; for more information, visit https://aka.ms/policy-pricing"
+    },
+    "allowedValues": [
+     "true",
+     "false"
+    ],
+    "defaultValue": "false"
+   }
+  },
+  "policyDefinitions": [
+   {
+    "policyDefinitionReferenceId": "Audit Linux machines that allow remote connections from accounts without passwords_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ea53dbee-c6c9-4f0e-9f9e-de0039b78023",
+    "parameters": {
+     "IncludeArcMachines": {
+      "value": "[parameters('IncludeArcMachines')]"
+     }
+    },
+    "groupNames": [
+     "Endpoint_name"
+    ]
+   }
+  ],
+  "policyDefinitionGroups": [
+   {
+    "name": "Endpoint_name",
+    "category": "Endpoint_category",
+    "displayName": "Endpoint_displayname",
+    "description": "Group description"
+   }
+  ]
+ },
+ "id": "/subscriptions/d0613210-9dc8-422d-95b5-bc2ff8661467/providers/Microsoft.Authorization/policySetDefinitions/6f7416f14cf6416bb91a50e3",
+ "type": "Microsoft.Authorization/policySetDefinitions",
+ "name": "6f7416f14cf6416bb91a50e3"
+}
